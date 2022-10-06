@@ -51,5 +51,19 @@ public class stepDefinition {
 		System.out.println("----------------------------------");
 	}
 	
+	@Given("^Validate the browser$")
+	public void validate_browser() {
+		System.out.println("Browser validation");
+	}
+	
+	@When("^Browser is triggered$")
+	public void browser_triggering() {
+		System.out.println("Browser is triggered");
+	}
+	
+	@Then("^Check if browser is started$")
+	public void browser_started() {
+		System.out.println("Browser started");
+	}
 	
 }

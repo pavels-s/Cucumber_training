@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/java/features",
 		//glue = parameter of step definition file
-		glue = "stepDefinitions", stepNotifications = true)
+		glue = "stepDefinitions", stepNotifications = true, tags = "@SmokeTest") /* example: "not @RegTest */
 
 public class TestRunner {
 
