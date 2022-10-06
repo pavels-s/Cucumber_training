@@ -1,9 +1,6 @@
 Feature: Application Login
 
-Background:
-Given Validate the browser
-When Browser is triggered
-Then Check if browser is started
+
 
 
 @RegTest
@@ -22,7 +19,7 @@ Then Home page is populated
 And Cards displayed "false"
 
 
-@RegTest
+@MobileTest
 Scenario: Home page login with additional credentials
 Given User is on banking landing page
 When User login into application with following details
