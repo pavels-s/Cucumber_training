@@ -1,4 +1,4 @@
-Feature: Applicatioon Login
+Feature: Application Login
 
 Scenario: Home page default login
 Given User is on banking landing page
