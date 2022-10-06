@@ -32,6 +32,13 @@ public class stepDefinition {
 		System.out.println(obj.get(0).get(0) + " " + obj.get(0).get(1));
 	}
 	
+	@When("^User login into application with many (.+) and (.+)$") 
+	public void user_login_into_application_with_many_parameters(String username, String password) {
+		//login into application
+		System.out.println("Logged in succesfully");
+		System.out.println(username + " " + password);
+	}
+	
 	@Then("^Home page is populated$")
 	public void home_page_is_populated(){
 		System.out.println("Home page is validated");
