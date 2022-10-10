@@ -14,6 +14,6 @@ import io.cucumber.junit.CucumberOptions;
 		tags = "@MobileTest",
 		plugin = {"pretty", "html:target/cucumber.html"}) /* example: "not @RegTest */
 
-public class TestRunner {
+public class Example_TestRunner {
 
 }

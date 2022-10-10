@@ -13,7 +13,7 @@ When Browser is triggered
 Then Check if browser is started
 */
 
-public class Hooks {
+public class Example_Hooks {
 
 	@Before("@MobileTest")
 	public void beforeValidation() {

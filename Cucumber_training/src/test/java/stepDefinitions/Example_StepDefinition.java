@@ -8,7 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class stepDefinition {
+public class Example_StepDefinition {
 
 	@Given("^User is on banking landing page$")
 	public void user_is_on_banking_landing_page() {
