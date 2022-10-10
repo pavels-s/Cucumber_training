@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/java/features",
+		features = "src/test/java/features/Example_login.feature",
 		//glue = parameter of step definition file
 		glue = "stepDefinitions", 
 		stepNotifications = true, 
