@@ -9,7 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions( 
 features = "src/test/java/features/searchProduct.feature",
 glue = "stepDefinitions",
-monochrome = true
+monochrome = true,
+stepNotifications = true
 //dryRun = true
 )
 
