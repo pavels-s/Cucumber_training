@@ -19,7 +19,7 @@ Then Home page is populated
 And Cards displayed "false"
 
 
-@MobileTest
+@SmokeTest
 Scenario: Home page login with additional credentials
 Given User is on banking landing page
 When User login into application with following details
@@ -28,10 +28,12 @@ Then Home page is populated
 And Cards displayed "true"
 
 
-@SmokeTest
+
+
+@MobileTest
 Scenario Outline: Home page login with different credentials
 Given User is on banking landing page
-When User login into application with many <Username> and <Password>
+When User login in to application with many <Username> and <Password>
 Then Home page is populated
 And Cards displayed "true"
 

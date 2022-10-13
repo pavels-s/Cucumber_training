@@ -16,7 +16,7 @@ public class Example_StepDefinition {
 		System.out.println("Testing if user is on landing page");
 	}
 	
-	@When("^User login into application with username \"([^\"]*)\" and password \\\"([^\\\"]*)\\\"$") 
+	@When("^User login into application with username \"([^\"]*)\" and password \"([^\"]*)\"$") 
 	public void user_login_into_application_with_username_and_password(String strArg1, String strArg2) {
 		//login into application
 		System.out.println("Logged in succesfully");
@@ -29,11 +29,12 @@ public class Example_StepDefinition {
 		//login into application
 		System.out.println("Logged in succesfully");
 		List<List<String>> obj = data.asLists();
+		//get(0) means number of row and column to take a data
 		System.out.println(obj.get(0).get(0) + " " + obj.get(0).get(1));
 	}
 	
-	@When("^User login into application with many (.+) and (.+)$") 
-	public void user_login_into_application_with_many_parameters(String username, String password) {
+	@When("^User login in to application with many (.+) and (.+)$") 
+	public void user_login_in_to_application_with_many_parameters(String username, String password) {
 		//login into application
 		System.out.println("Logged in succesfully");
 		System.out.println(username + " " + password);
