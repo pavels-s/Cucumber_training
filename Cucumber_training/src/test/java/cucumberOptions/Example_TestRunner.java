@@ -7,12 +7,12 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/java/features/Example_login.feature",
+		features = "src/test/java/features",
 		//glue = parameter of step definition file
 		glue = "stepDefinitions", 
 		stepNotifications = true, 
-		tags = "@MobileTest",
-		plugin = {"pretty", "html:target/cucumber.html"}) /* example: "not @RegTest */
+		tags = "@PortalTest",
+		plugin = {"pretty", "html:target/cucumber.html"}) /* example: "not @RegTest" "@SmokeTest and(or) @RegTest */
 
 public class Example_TestRunner {
 
