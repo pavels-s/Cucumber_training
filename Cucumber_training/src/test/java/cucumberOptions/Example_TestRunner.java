@@ -2,6 +2,8 @@ package cucumberOptions;
 
 import org.junit.runner.RunWith;
 
+//Eclipse project template -> maven-archetype-quickstart
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 

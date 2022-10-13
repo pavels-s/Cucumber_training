@@ -7,14 +7,14 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions( 
-features = "src/test/java/features/searchProduct.feature",
+features = "src/test/java/features/NG_SearchProduct.feature",
 glue = "stepDefinitions",
 monochrome = true,
 stepNotifications = true
-//dryRun = true
+//dryRun = true -> is only for compilation, not for actual run
 )
 
-public class TestNGTestRunner {
+public class NG_TestRunner {
 
 	
 }
