@@ -34,6 +34,13 @@
     <version>7.8.1</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.5.0</version>
+</dependency>
+
 <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -49,14 +56,15 @@
     <scope>test</scope>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
 <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.5.0</version>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-picocontainer</artifactId>
+    <version>7.8.1</version>
 </dependency>
 
-    
   </dependencies>
 
   <build>
