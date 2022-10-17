@@ -17,7 +17,7 @@ import utils.NG_TestContextSetup;
 
 public class NG_LandingPageStepDefinition{
 public WebDriver driver;
-public String landingPageProductName, offerPageProductName;
+public String landingPageProductName;
 NG_TestContextSetup testContextSetup;
 	
 

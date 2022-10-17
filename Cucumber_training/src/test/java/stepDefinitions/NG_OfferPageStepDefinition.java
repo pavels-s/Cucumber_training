@@ -26,8 +26,15 @@ public NG_OfferPageStepDefinition(NG_TestContextSetup testContextSetup) {
 
 @Then("User searched for same short name {string} in offers page")
 public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
+	switchToOffersPage();
+	testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
+	Thread.sleep(2000);
+	//Find element in table
+	offerPageProductName = testContextSetup.driver.findElement(By.cssSelector("tr td:nth-child(1)")).getText();
+}
+
+public void switchToOffersPage() {
 	testContextSetup.driver.findElement(By.linkText("Top Deals")).click();
-	
 	Set<String> s1 = testContextSetup.driver.getWindowHandles();
 	//Setting collection with both opened windows - parent and just opened child
 	Iterator<String> i1 = s1.iterator();
@@ -37,11 +44,6 @@ public void user_searched_for_same_shortname_in_offers_page(String shortName) th
 	String childWindow = i1.next();
 	//Switching to child window thru its ID
 	testContextSetup.driver.switchTo().window(childWindow);
-	testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
-	Thread.sleep(2000);
-		
-	//Find element in table
-	offerPageProductName = testContextSetup.driver.findElement(By.cssSelector("tr td:nth-child(1)")).getText();
 }
 	
 @And("Validate product name on offers page matches product page in landing page")
