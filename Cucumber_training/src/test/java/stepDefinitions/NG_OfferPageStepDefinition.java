@@ -12,6 +12,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import junit.framework.Assert;
+import pageObjects.LandingPage;
+import pageObjects.OffersPage;
 import utils.NG_TestContextSetup;
 
 public class NG_OfferPageStepDefinition {
@@ -27,14 +29,17 @@ public NG_OfferPageStepDefinition(NG_TestContextSetup testContextSetup) {
 @Then("User searched for same short name {string} in offers page")
 public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
 	switchToOffersPage();
+	OffersPage offersPage = new OffersPage(testContextSetup.driver);
+	offersPage.searchItem(shortName);
 	testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
 	Thread.sleep(2000);
 	//Find element in table
-	offerPageProductName = testContextSetup.driver.findElement(By.cssSelector("tr td:nth-child(1)")).getText();
+	offerPageProductName = offersPage.getProductName();
 }
 
 public void switchToOffersPage() {
-	testContextSetup.driver.findElement(By.linkText("Top Deals")).click();
+	LandingPage landingPage = new LandingPage(testContextSetup.driver);
+	landingPage.selectTopDealsPage();
 	Set<String> s1 = testContextSetup.driver.getWindowHandles();
 	//Setting collection with both opened windows - parent and just opened child
 	Iterator<String> i1 = s1.iterator();

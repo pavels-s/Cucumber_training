@@ -13,6 +13,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import junit.framework.Assert;
+import pageObjects.LandingPage;
 import utils.NG_TestContextSetup;
 
 public class NG_LandingPageStepDefinition{
@@ -35,9 +36,11 @@ public void user_is_on_green_card_landing_page() {
 
 @When("User searched with short name {string} and extracted actual name of product")
 public void user_searched_with_short_name_and_extracted_actual_name_of_product(String shortName) throws InterruptedException {
-	testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
+	LandingPage landingPage = new LandingPage(testContextSetup.driver);
+	landingPage.searchItem(shortName);
+
 	Thread.sleep(2000);
-	testContextSetup.landingPageProductName = testContextSetup.driver.findElement(By.cssSelector("h4.product-name")).getText().split("-")[0].trim();
+	landingPageProductName = landingPage.getProductName();
 	System.out.println(landingPageProductName + " is extracted from Home page");  
 }
 	
