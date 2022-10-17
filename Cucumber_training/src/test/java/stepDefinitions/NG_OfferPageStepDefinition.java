@@ -14,12 +14,15 @@ import io.cucumber.java.en.When;
 import junit.framework.Assert;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
+import pageObjects.PageObjectManager;
 import utils.NG_TestContextSetup;
 
 public class NG_OfferPageStepDefinition {
 public WebDriver driver;
 public String offerPageProductName;
+public String landingPageProductName;
 NG_TestContextSetup testContextSetup;
+PageObjectManager pageObjectManager;
 
 public NG_OfferPageStepDefinition(NG_TestContextSetup testContextSetup) {
 	this.testContextSetup = testContextSetup;
@@ -29,16 +32,21 @@ public NG_OfferPageStepDefinition(NG_TestContextSetup testContextSetup) {
 @Then("User searched for same short name {string} in offers page")
 public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
 	switchToOffersPage();
+	
 	OffersPage offersPage = new OffersPage(testContextSetup.driver);
 	offersPage.searchItem(shortName);
-	testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
+	//testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
 	Thread.sleep(2000);
 	//Find element in table
 	offerPageProductName = offersPage.getProductName();
+	
 }
 
 public void switchToOffersPage() {
-	LandingPage landingPage = new LandingPage(testContextSetup.driver);
+	//pageObjectManager = new PageObjectManager(testContextSetup.driver);
+	pageObjectManager.getLandingPage();
+	LandingPage landingPage = testContextSetup.pageObjectManager.getLandingPage();
+	landingPageProductName = landingPage.getProductName();
 	landingPage.selectTopDealsPage();
 	Set<String> s1 = testContextSetup.driver.getWindowHandles();
 	//Setting collection with both opened windows - parent and just opened child
@@ -53,7 +61,7 @@ public void switchToOffersPage() {
 	
 @And("Validate product name on offers page matches product page in landing page")
 public void validate_product_name_on_offers_page_and_landing_page() {
-	Assert.assertEquals(offerPageProductName, testContextSetup.landingPageProductName);
+	Assert.assertEquals(offerPageProductName, landingPageProductName);
 }
 
 }

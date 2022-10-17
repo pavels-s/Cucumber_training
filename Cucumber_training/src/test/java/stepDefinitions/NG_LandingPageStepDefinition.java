@@ -36,7 +36,7 @@ public void user_is_on_green_card_landing_page() {
 
 @When("User searched with short name {string} and extracted actual name of product")
 public void user_searched_with_short_name_and_extracted_actual_name_of_product(String shortName) throws InterruptedException {
-	LandingPage landingPage = new LandingPage(testContextSetup.driver);
+	LandingPage landingPage = testContextSetup.pageObjectManager.getLandingPage();
 	landingPage.searchItem(shortName);
 
 	Thread.sleep(2000);

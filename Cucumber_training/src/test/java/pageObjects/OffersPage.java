@@ -23,6 +23,7 @@ public class OffersPage {
 	}
 	
 	public String getProductName() {
-		return driver.findElement(search).getText().split("-")[0].trim();
-
+		return driver.findElement(productName).getText().split("-")[0].trim();
+	}
 }
+
