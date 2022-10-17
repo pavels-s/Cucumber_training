@@ -34,8 +34,9 @@ public void user_is_on_green_card_landing_page() {
 	
 
 @When("User searched with short name {string} and extracted actual name of product")
-public void user_searched_with_short_name_and_extracted_actual_name_of_product(String shortName) {
+public void user_searched_with_short_name_and_extracted_actual_name_of_product(String shortName) throws InterruptedException {
 	testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
+	Thread.sleep(2000);
 	testContextSetup.landingPageProductName = testContextSetup.driver.findElement(By.cssSelector("h4.product-name")).getText().split("-")[0].trim();
 	System.out.println(landingPageProductName + " is extracted from Home page");  
 }
