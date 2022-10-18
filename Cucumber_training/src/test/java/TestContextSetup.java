@@ -2,7 +2,7 @@
 
 import org.openqa.selenium.WebDriver;
 
-public class NG_TestContextSetup {
+public class TestContextSetup {
 	
 	public WebDriver driver;
 	public String landingPageProductName;

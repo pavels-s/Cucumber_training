@@ -17,8 +17,9 @@ public class PageObjectManager {
 		return landingPage;
 	}
 	
-	public void offersPage() {
+	public OffersPage offersPage() {
 		offersPage = new OffersPage(driver);
+		return offersPage;
 	}
 
 }

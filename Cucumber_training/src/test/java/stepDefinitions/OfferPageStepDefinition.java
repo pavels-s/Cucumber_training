@@ -15,16 +15,16 @@ import junit.framework.Assert;
 import pageObjects.LandingPage;
 import pageObjects.OffersPage;
 import pageObjects.PageObjectManager;
-import utils.NG_TestContextSetup;
+import utils.TestContextSetup;
 
-public class NG_OfferPageStepDefinition {
+public class OfferPageStepDefinition {
 public WebDriver driver;
 public String offerPageProductName;
 public String landingPageProductName;
-NG_TestContextSetup testContextSetup;
+TestContextSetup testContextSetup;
 PageObjectManager pageObjectManager;
 
-public NG_OfferPageStepDefinition(NG_TestContextSetup testContextSetup) {
+public OfferPageStepDefinition(TestContextSetup testContextSetup) {
 	this.testContextSetup = testContextSetup;
 }
 	
@@ -33,7 +33,7 @@ public NG_OfferPageStepDefinition(NG_TestContextSetup testContextSetup) {
 public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
 	switchToOffersPage();
 	
-	OffersPage offersPage = new OffersPage(testContextSetup.driver);
+	OffersPage offersPage = testContextSetup.pageObjectManager.offersPage();
 	offersPage.searchItem(shortName);
 	//testContextSetup.driver.findElement(By.xpath("//input[@type='search']")).sendKeys(shortName);
 	Thread.sleep(2000);
@@ -44,24 +44,16 @@ public void user_searched_for_same_shortname_in_offers_page(String shortName) th
 
 public void switchToOffersPage() {
 	//pageObjectManager = new PageObjectManager(testContextSetup.driver);
-	pageObjectManager.getLandingPage();
+	//pageObjectManager.getLandingPage();
 	LandingPage landingPage = testContextSetup.pageObjectManager.getLandingPage();
-	landingPageProductName = landingPage.getProductName();
+	//landingPageProductName = landingPage.getProductName();
 	landingPage.selectTopDealsPage();
-	Set<String> s1 = testContextSetup.driver.getWindowHandles();
-	//Setting collection with both opened windows - parent and just opened child
-	Iterator<String> i1 = s1.iterator();
-	//Autom. retrieve window with index 0
-	String parentWindow = i1.next();
-	//Retrieve second, child windows ID
-	String childWindow = i1.next();
-	//Switching to child window thru its ID
-	testContextSetup.driver.switchTo().window(childWindow);
+	testContextSetup.genericUtils.SwitchWindowTOChild();
 }
 	
 @And("Validate product name on offers page matches product page in landing page")
 public void validate_product_name_on_offers_page_and_landing_page() {
-	Assert.assertEquals(offerPageProductName, landingPageProductName);
+	Assert.assertEquals(offerPageProductName, testContextSetup.landingPageProductName);
 }
 
 }
