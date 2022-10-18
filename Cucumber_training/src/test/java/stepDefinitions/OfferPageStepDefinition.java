@@ -29,7 +29,7 @@ public OfferPageStepDefinition(TestContextSetup testContextSetup) {
 }
 	
 
-@Then("User searched for same short name {string} in offers page")
+@Then("^User searched for same short name (.+) in offers page$")
 public void user_searched_for_same_shortname_in_offers_page(String shortName) throws InterruptedException {
 	switchToOffersPage();
 	
