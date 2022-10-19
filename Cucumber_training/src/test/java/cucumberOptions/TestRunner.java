@@ -11,8 +11,12 @@ import io.cucumber.junit.CucumberOptions;
 features = "src/test/java/features/Checkout.feature",
 glue = "stepDefinitions",
 monochrome = true,
-stepNotifications = true
+stepNotifications = true,
+plugin = {"html:target/cucumber.html", "json:target/cucumber.json", 
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+
 //dryRun = true -> is only for compilation, not for actual run
+//tags "@Firsttag or @Secondtag"
 //tags = "@Place order"
 )
 
