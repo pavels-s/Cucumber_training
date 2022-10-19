@@ -24,7 +24,8 @@ public class TestBase {
 				System.setProperty("webdriver.chrome.driver","/JavaGuru/Soft/chromedriver.exe");
 				driver = new ChromeDriver();
 			}
-			
+			//To add waiting time for any object searching
+			//driver.manage().timeouts()implicittlyWait(Duration.ofSeconds(5));
 		driver.get(url);
 		}
 		return driver;

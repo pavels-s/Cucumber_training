@@ -1,12 +1,14 @@
-Feature: Search and Place the order for Products
+Feature: Place the order for Products
 
-@OffersPage
+@PlaceOrder
 Scenario Outline: Search Experience for product search in both home page and offers page
 
 Given User is on GreenCard landing page
 When User searched with short name <Name> and extracted actual name of product
-Then User searched for same short name <Name> in offers page
-And Validate product name on offers page matches product page in landing page
+And Added "3" items of the selected product to cart
+Then User proceeds to Checkout and validate the <Name> items in checkout page
+And Verify user has ability to enter promo code and place the order
+
 
 Examples: 
 | Name |
