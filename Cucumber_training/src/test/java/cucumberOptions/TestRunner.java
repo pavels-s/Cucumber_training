@@ -15,6 +15,7 @@ stepNotifications = true,
 plugin = {"html:target/cucumber.html", "json:target/cucumber.json", 
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
+//rerun:target/failed_scenarios.txt -> to rerun failed tests with FailedTestRunner and failed_scenarios instead features
 //dryRun = true -> is only for compilation, not for actual run
 //tags "@Firsttag or @Secondtag"
 //tags = "@Place order"

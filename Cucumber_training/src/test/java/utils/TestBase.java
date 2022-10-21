@@ -18,9 +18,10 @@ public class TestBase {
 		Properties prop = new Properties();
 		prop.load(fis);
 		String url = prop.getProperty("QAUrl");
+		String browser = prop.getProperty("browser");
 		
 		if(driver == null) {
-			if(prop.getProperty("browser").equalsIgnoreCase("chrome")) {
+			if(browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver","/JavaGuru/Soft/chromedriver.exe");
 				driver = new ChromeDriver();
 			}
